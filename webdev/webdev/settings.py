@@ -116,7 +116,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = "/home/arthur133/mycontacts/static"
+STATIC_ROOT = "/home/arthur133/Django/mycontacts/static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
