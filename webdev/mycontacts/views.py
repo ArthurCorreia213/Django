@@ -7,6 +7,14 @@ from .forms import AddForm
 from .models import Contact
 from django.http import HttpResponseRedirect
 
+def detail(request, name):
+    contact_ref = ''
+    for contact in Contact.objects.all():
+        #print(contact.name, name)
+        if contact.name == name:
+            contact_ref = contact
+    return render(request, 'mycontacts/detail.html', {'contact': contact_ref})
+
 def show(request):
     """ 
     This function gets all the members in your Database through your Model
@@ -46,3 +54,7 @@ def add(request):
         return render(request, 'mycontacts/add.html')
 
     
+#def update(request, name):
+
+def delete(request, name):
+    pass
