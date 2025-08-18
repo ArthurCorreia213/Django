@@ -2,14 +2,14 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import AddForm
 from .models import Contact
 from django.http import HttpResponseRedirect
 
-def detail(request, name1):
+def detail(request, id_ref):
     try:
-        contato_localizado = Contact.objects.filter(name=name1).first()
+        contato_localizado = Contact.objects.filter(id=id_ref).first()
     except:
         return render(request, 'mycontacts/detail.html', {'contact': "Erro"})
     return render(request, 'mycontacts/detail.html', {'contact': contato_localizado})
@@ -52,7 +52,7 @@ def add(request):
     else:
         return render(request, 'mycontacts/add.html')
 
-def edit(request, name1):
+def edit(request, id_ref):
     if request.method == 'POST':
             
         django_form = AddForm(request.POST)
@@ -65,7 +65,7 @@ def edit(request, name1):
             new_member_email = django_form.data.get('email')
             
             """ This is how your model connects to database and create a new member """
-            Contact.objects.filter(name=name1).update(
+            Contact.objects.filter(id=id_ref).update(
                 name =  new_member_name, 
                 relation = new_member_relation,
                 phone = new_member_phone,
@@ -80,12 +80,12 @@ def edit(request, name1):
             return render(request, 'mycontacts/add.html')
     else:
         try:
-            contato_localizado = Contact.objects.filter(name=name1).first()
+            contato_localizado = Contact.objects.filter(id=id_ref).first()
         except:
             return render(request, 'mycontacts/edit.html', {'contact': "Erro"})
         return render(request, 'mycontacts/edit.html', {'contact': contato_localizado})
 
-def delete(request, name1):
-    Contact.objects.filter(name=name1).first().delete()
-    return render(request, 'mycontacts/show.html')
+def delete(request, id_ref):
+    Contact.objects.filter(id=id_ref).first().delete()
+    return redirect("/")
 
