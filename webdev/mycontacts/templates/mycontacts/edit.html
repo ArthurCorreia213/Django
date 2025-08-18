@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 
+{% if contact != "Erro" %}
   <div class="container-add">
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-3">
         		
@@ -9,6 +10,8 @@
             
               {% csrf_token %}
               {{ form.as_p }}
+
+              <h2 style="text-align: center;">Details</h2>
               
               <div class="form-group">
                   <label class="form-label">Name</label>
@@ -32,4 +35,19 @@
       </div>
   </div>
 
+{% else %}
+
+  <div class="container-add">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-3">
+        		
+          <form id="add-contact-form" class="form" action="#" method="POST" role="form">
+
+              <h2 style="text-align: center;">ERRO: Contato não existe</h2> 
+              
+          </form>
+          
+      </div>
+  </div>
+
+{% endif %}
 {% endblock content %}
