@@ -11,24 +11,28 @@
               {% csrf_token %}
               {{ form.as_p }}
 
-              <h2 style="text-align: center;">Details</h2>
+              <h2 style="text-align: center;">Edit contact</h2>
               
               <div class="form-group">
                   <label class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="{{ contact.name }}" tabindex="1" disabled>
+                  <input type="text" class="form-control" id="name" name="name" value="{{ contact.name }}" tabindex="1" required>
               </div>
               <div class="form-group">
                   <label class="form-label">Relation</label>
-                  <input type="text" class="form-control" id="relation" name="relation" placeholder="{{ contact.relation }}" tabindex="2" disabled>
+                  <input type="text" class="form-control" id="relation" name="relation" value="{{ contact.relation }}" tabindex="2" required>
               </div>
               <div class="form-group">
                   <label class="form-label">Phone</label>
-                  <input type="text" class="form-control" id="phone" name="phone" placeholder="{{ contact.phone }}" tabindex="3" disabled>
+                  <input type="text" class="form-control" id="phone" name="phone" value="{{ contact.phone }}" tabindex="3" required>
               </div>
               <div class="form-group">
                   <label class="form-label" for="email">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="{{ contact.email }}" tabindex="4" disabled>
-              </div>                            
+                  <input type="text" class="form-control" id="email" name="email" value="{{ contact.email }}" tabindex="4" required>
+              </div>    
+              
+              <div class="text-center">
+                  <button type="submit" class="btn">Confirm</button>
+              </div>
               
           </form>
           

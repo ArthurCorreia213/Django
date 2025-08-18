@@ -10,10 +10,7 @@ from django.http import HttpResponseRedirect
 def detail(request, name1):
     try:
         contato_localizado = Contact.objects.filter(name=name1).first()
-        print(contato_localizado)
-        print(contato_localizado.name, '\n\n\n\n')
     except:
-        print("Erro ao buscar")
         return render(request, 'mycontacts/detail.html', {'contact': "Erro"})
     return render(request, 'mycontacts/detail.html', {'contact': contato_localizado})
 
@@ -82,8 +79,13 @@ def edit(request, name1):
             """ redirect to the same page if django_form goes wrong """
             return render(request, 'mycontacts/add.html')
     else:
-        return render(request, 'mycontacts/add.html')
+        try:
+            contato_localizado = Contact.objects.filter(name=name1).first()
+        except:
+            return render(request, 'mycontacts/edit.html', {'contact': "Erro"})
+        return render(request, 'mycontacts/edit.html', {'contact': contato_localizado})
 
 def delete(request, name1):
     Contact.objects.filter(name=name1).first().delete()
     return render(request, 'mycontacts/show.html')
+
