@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from medico import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cadastro/', views.TelaCadastroMedico, name='cadastro_medico'),
+    path('especialidade/', views.TelaCadastroEspecialidade, name='cadastro_especialidade')
 ]
