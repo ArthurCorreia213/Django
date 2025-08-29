@@ -1,0 +1,9 @@
+{% extends "medico/base.html" %}
+{% block conteudo %}
+    {% for especialidade in especialidades %}
+        <h1>{{especialidade.nome}}</h1>
+        {{especialidade.descricao}}<br>
+        <a href="#" style="color: red">Apagar</a>
+        <a href="#" style="color: green">Editar</h5></a><hr>
+    {% endfor %}
+{% endblock conteudo %}

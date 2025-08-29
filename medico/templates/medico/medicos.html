@@ -1,0 +1,9 @@
+{% extends "medico/base.html" %}
+{% block conteudo %}
+    {% for medico in medicos %}
+        <h1>{{medico.nome}}</h1>
+        CRM: {{medico.crm}}<br><br>
+        <a href="#" style="color: red">Apagar</a>
+        <a href="#" style="color: green">Editar</h5></a><hr>
+    {% endfor %}
+{% endblock conteudo %}

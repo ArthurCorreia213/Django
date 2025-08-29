@@ -20,6 +20,8 @@ from medico import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cadastro/', views.TelaCadastroMedico, name='cadastro_medico'),
-    path('especialidade/', views.TelaCadastroEspecialidade, name='cadastro_especialidade')
+    path('cadastro/medico/', views.TelaCadastroMedico, name='cadastro_medico'),
+    path('cadastro/especialidade/', views.TelaCadastroEspecialidade, name='cadastro_especialidade'),
+    path('medicos/', views.ListarMedicos.as_view(), name='medicos'),
+    path('especialidades/', views.ListarEspecialidades.as_view(), name='especialidades'),
 ]
