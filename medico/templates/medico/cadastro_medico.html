@@ -1,6 +1,6 @@
 {% extends "medico/base.html" %}
 {% load crispy_forms_tags %}
-{% block content %}
+{% block conteudo %}
 	<div class="content-section">
 		<form method="POST">
 			{% csrf_token %}
@@ -12,4 +12,4 @@
 			</div>
 		</form>
 	</div>
-{% endblock content %}
+{% endblock conteudo %}

@@ -11,7 +11,7 @@ class MEDICO(models.Model):
     email = models.CharField("Endereço de e-mail do médico", max_length=50)
     data_nascimento = models.DateField("Data de nascimento do médico")
     crm = models.CharField()
-    id_especialidade = models.ForeignKey("ESPECIALIDADE", on_delete=models.CASCADE, null=True,)
+    id_especialidade = models.ForeignKey("ESPECIALIDADE", on_delete=models.CASCADE, null=True)
 
 #ARTHUR CORREIA
 class ESPECIALIDADE(models.Model):
